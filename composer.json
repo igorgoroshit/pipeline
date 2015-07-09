@@ -1,0 +1,38 @@
+{
+    "name": "igorgoroshit/asset-pipeline",
+    "description": "A very simple and easy to use asset pipeline for laravel 4.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kelt Dockins",
+            "email": "kelt@dockins.org"
+        }
+    ],
+    
+    "repositories": [
+		{
+			"type": "git",
+			"url": "https://github.com/igorgoroshit/sprockets"
+		}
+    ],
+    
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "~4.0|~5.0",
+        "igorgoroshit/sprockets": "dev-master",
+        "ext-fileinfo": "*"
+    },
+
+    "require-dev": {
+        "laravel/framework": "4.*",
+    },
+    
+    "autoload": {
+        "classmap": [
+            "src/controllers"
+        ],
+        "psr-0": {
+            "Codesleeve\\AssetPipeline": "src/"
+        }
+    }
+}
