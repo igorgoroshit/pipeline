@@ -1,7 +1,9 @@
 {
-    "name": "igorgoroshit/asset-pipeline",
+    "name": "igorgoroshit/pipeline",
     "description": "A very simple and easy to use asset pipeline for laravel 4.",
+    
     "license": "MIT",
+
     "authors": [
         {
             "name": "Kelt Dockins",
