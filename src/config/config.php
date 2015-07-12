@@ -134,10 +134,10 @@ return array(
 			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
 		),
 		'.emb' => array(
-			new Filters\EmblemFilter()
+			new Igorgoroshit\Pipeline\Filters\EmblemFilter
 		),
 		'.hbs' => array(
-			new Filters\HandlebarsFilter()
+			new Igorgoroshit\Pipeline\Filters\HandlebarsFilter
 		)
 	),
 
