@@ -187,7 +187,7 @@ return array(
 	|
 	| Note that this needs to implement the interface
 	|
-	|	Codesleeve\Sprockets\Interfaces\ClientCacheInterface
+	|	Igorgoroshit\Sprockets\Interfaces\ClientCacheInterface
 	|
 	| or this won't work correctly. It is a wrapper class around your cache_server
 	| driver and also uses the AssetCache class to help access files.
@@ -222,16 +222,16 @@ return array(
 	|
 	*/
 	'directives' => array(
-		'require ' => new Codesleeve\Sprockets\Directives\RequireFile,
-		'require_directory ' => new Codesleeve\Sprockets\Directives\RequireDirectory,
-		'require_tree ' => new Codesleeve\Sprockets\Directives\RequireTree,
-		'require_tree_df ' => new Codesleeve\Sprockets\Directives\RequireTreeDf,
-		'require_self' => new Codesleeve\Sprockets\Directives\RequireSelf,
-		'include ' => new Codesleeve\Sprockets\Directives\IncludeFile,
-		'include_directory ' => new Codesleeve\Sprockets\Directives\IncludeDirectory,
-		'include_tree ' => new Codesleeve\Sprockets\Directives\IncludeTree,
-		'stub ' => new Codesleeve\Sprockets\Directives\Stub,
-		'depend_on ' => new Codesleeve\Sprockets\Directives\DependOn,
+		'require ' => new Igorgoroshit\Sprockets\Directives\RequireFile,
+		'require_directory ' => new Igorgoroshit\Sprockets\Directives\RequireDirectory,
+		'require_tree ' => new Igorgoroshit\Sprockets\Directives\RequireTree,
+		'require_tree_df ' => new Igorgoroshit\Sprockets\Directives\RequireTreeDf,
+		'require_self' => new Igorgoroshit\Sprockets\Directives\RequireSelf,
+		'include ' => new Igorgoroshit\Sprockets\Directives\IncludeFile,
+		'include_directory ' => new Igorgoroshit\Sprockets\Directives\IncludeDirectory,
+		'include_tree ' => new Igorgoroshit\Sprockets\Directives\IncludeTree,
+		'stub ' => new Igorgoroshit\Sprockets\Directives\Stub,
+		'depend_on ' => new Igorgoroshit\Sprockets\Directives\DependOn,
 	),
 
 	/*
@@ -304,7 +304,7 @@ return array(
 	| what is actually going on here.
 	|
 	*/
-	'sprockets_filter' => '\Codesleeve\Sprockets\SprocketsFilter',
+	'sprockets_filter' => '\Igorgoroshit\Sprockets\SprocketsFilter',
 
 	/*
 	|--------------------------------------------------------------------------
