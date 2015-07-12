@@ -1,9 +1,9 @@
-<?php namespace Codesleeve\AssetPipeline\Filters;
+<?php namespace Igorgoroshit\AssetPipeline\Filters;
 
 use DateTime;
 use Assetic\Asset\AssetInterface;
 use Assetic\Cache\CacheInterface;
-use Codesleeve\Sprockets\Interfaces\ClientCacheInterface;
+use Igorgoroshit\Sprockets\Interfaces\ClientCacheInterface;
 
 class ClientCacheFilter implements ClientCacheInterface
 {

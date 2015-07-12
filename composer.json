@@ -21,7 +21,7 @@
     "require": {
         "php": ">=5.3.0",
         "illuminate/support": "~4.0|~5.0",
-        "axy/sourcemap": "*",
+        "igorgoroshit/sprockets": "*",
         "kriswallsmith/assetic": "v1.1.2"
         "ext-fileinfo": "*"
     },
@@ -31,13 +31,13 @@
     },
     
     "autoload": {
+
         "classmap": [
             "src/controllers"
         ],
         
         "psr-0": {
-            "Codesleeve\\AssetPipeline": "src/",
-            "Codesleeve\\Sprockets": "src/"
+            "Codesleeve\\AssetPipeline": "src/"
         }
     }
 }
