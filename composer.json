@@ -8,6 +8,10 @@
         {
             "name": "Kelt Dockins",
             "email": "kelt@dockins.org"
+        },
+        {
+            "name": "Igor Goroshit",
+            "email": "igor@webt.co.il"
         }
     ],
     
@@ -37,7 +41,7 @@
         ],
         
         "psr-0": {
-            "Codesleeve\\Pipeline": "src/"
+            "Igorgoroshit\\Pipeline": "src/"
         }
     }
 }
