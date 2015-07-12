@@ -63,7 +63,7 @@ return array(
 	|
 	*/
 	'mimes' => array(
-	    'javascripts' => array('.js', '.js.coffee', '.coffee', '.html', '.min.js'),
+	    'javascripts' => array('.js', '.js.coffee', '.coffee', '.html', '.min.js', '.emb', '.hbs'),
 	    'stylesheets' => array('.css', '.css.less', '.css.sass', '.css.scss', '.less', '.sass', '.scss', '.min.css'),
 	),
 
@@ -82,56 +82,62 @@ return array(
 
 		),
 		'.min.css' => array(
-			new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			//new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
 		),
 		'.js' => array(
-			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
+			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
 		),
 		'.js.coffee' => array(
-			new Igorgoroshit\Pipeline\Filters\CoffeeScript,
-			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
+			//new Igorgoroshit\Pipeline\Filters\CoffeeScript,
+			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
 		),
 		'.coffee' => array(
-			new Igorgoroshit\Pipeline\Filters\CoffeeScript,
-			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
+			//new Igorgoroshit\Pipeline\Filters\CoffeeScript,
+			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
 		),
 		'.css' => array(
-			new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
+			//new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
 		),
 		'.css.less' => array(
 			new Igorgoroshit\Pipeline\Filters\LessphpFilter,
-			new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
+			//new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
 		),
 		'.css.sass' => array(
 			new Igorgoroshit\Pipeline\Filters\SassFilter,
-			new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
+			//new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
 		),
 		'.css.scss' => array(
 			new Assetic\Filter\ScssphpFilter,
-			new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
+			//new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
 		),
 		'.less' => array(
 			new Igorgoroshit\Pipeline\Filters\LessphpFilter,
-			new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
+			//new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
 		),
 		'.sass' => array(
 			new Igorgoroshit\Pipeline\Filters\SassFilter,
-			new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
+			//new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
 		),
 		'.scss' => array(
 			new Assetic\Filter\ScssphpFilter,
-			new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
+			//new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
 		),
 		'.html' => array(
-			new Igorgoroshit\Pipeline\Filters\JST,
-			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
+			//new Igorgoroshit\Pipeline\Filters\JST,
+			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
+		),
+		'.emb' => array(
+			new Filters\EmblemFilter()
+		),
+		'.hbs' => array(
+			new Filters\HandlebarsFilter()
 		)
 	),
 
