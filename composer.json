@@ -37,7 +37,7 @@
         ],
         
         "psr-0": {
-            "Codesleeve\\AssetPipeline": "src/"
+            "Codesleeve\\Pipeline": "src/"
         }
     }
 }

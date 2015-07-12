@@ -20,13 +20,13 @@ class AssetPipelineServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->package('codesleeve/asset-pipeline');
+		$this->package('igorgoroshit/pipeline');
 
 		include_once __DIR__.'/AssetPipelineGlobalHelpers.php';
 
 		$this->app['asset'] = $this->app->share(function($app)
 		{
-			$config = $app->config->get('asset-pipeline::config');
+			$config = $app->config->get('pipeline::config');
 			$config['base_path'] = base_path();
 			$config['environment'] = $app['env'];
 

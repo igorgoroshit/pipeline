@@ -3,7 +3,7 @@
 use App, Response, Controller;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
-class AssetPipelineController extends Controller
+class PipelineController extends Controller
 {
 	/**
 	 * Returns a file in the assets directory
