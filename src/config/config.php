@@ -289,7 +289,7 @@ return array(
 	| what is actually going on here.
 	|
 	*/
-	'controller_action' => '\Igorgoroshit\Pipeline\AssetPipelineController@file',
+	'controller_action' => '\Igorgoroshit\Pipeline\PipelineController@file',
 
 	/*
 	|--------------------------------------------------------------------------
