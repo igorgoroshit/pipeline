@@ -1,4 +1,4 @@
-<?php namespace Codesleeve\AssetPipeline\Commands;
+<?php namespace Igorgoroshit\Pipeline\Commands;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;

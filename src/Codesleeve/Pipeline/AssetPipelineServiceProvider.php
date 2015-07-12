@@ -1,4 +1,4 @@
-<?php namespace Codesleeve\AssetPipeline;
+<?php namespace Igorgoroshit\Pipeline;
 
 use Illuminate\Support\ServiceProvider;
 use Igorgoroshit\Sprockets\SprocketsParser;

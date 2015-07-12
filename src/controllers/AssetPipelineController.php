@@ -1,4 +1,4 @@
-<?php namespace Codesleeve\AssetPipeline;
+<?php namespace Igorgoroshit\Pipeline;
 
 use App, Response, Controller;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;

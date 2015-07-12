@@ -1,4 +1,4 @@
-<?php namespace Codesleeve\AssetPipeline\Composers;
+<?php namespace Igorgoroshit\Pipeline\Composers;
 
 class StylesheetComposer extends BaseComposer implements ComposerInterface
 {

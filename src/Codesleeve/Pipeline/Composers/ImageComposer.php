@@ -1,4 +1,4 @@
-<?php namespace Codesleeve\AssetPipeline\Composers;
+<?php namespace Igorgoroshit\Pipeline\Composers;
 
 class ImageComposer extends BaseComposer implements ComposerInterface
 {

@@ -1,4 +1,4 @@
-<?php namespace Codesleeve\AssetPipeline\Composers;
+<?php namespace Igorgoroshit\Pipeline\Composers;
 
 class JavascriptComposer extends BaseComposer implements ComposerInterface
 {

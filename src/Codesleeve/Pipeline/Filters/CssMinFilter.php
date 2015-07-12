@@ -1,4 +1,4 @@
-<?php namespace Codesleeve\AssetPipeline\Filters;
+<?php namespace Igorgoroshit\Pipeline\Filters;
 
 use Assetic\Asset\AssetInterface;
 use Assetic\Filter\FilterInterface;

@@ -11,7 +11,7 @@
 | new EnvironmentFilter(new FilterExample, App::environment(), array('production', 'staging')),
 |
 */
-use Codesleeve\AssetPipeline\Filters\EnvironmentFilter;
+use Igorgoroshit\Pipeline\Filters\EnvironmentFilter;
 
 return array(
 
@@ -82,56 +82,56 @@ return array(
 
 		),
 		'.min.css' => array(
-			new Codesleeve\AssetPipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
 		),
 		'.js' => array(
-			new EnvironmentFilter(new Codesleeve\AssetPipeline\Filters\JSMinPlusFilter, App::environment()),
+			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
 		),
 		'.js.coffee' => array(
-			new Codesleeve\AssetPipeline\Filters\CoffeeScript,
-			new EnvironmentFilter(new Codesleeve\AssetPipeline\Filters\JSMinPlusFilter, App::environment()),
+			new Igorgoroshit\Pipeline\Filters\CoffeeScript,
+			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
 		),
 		'.coffee' => array(
-			new Codesleeve\AssetPipeline\Filters\CoffeeScript,
-			new EnvironmentFilter(new Codesleeve\AssetPipeline\Filters\JSMinPlusFilter, App::environment()),
+			new Igorgoroshit\Pipeline\Filters\CoffeeScript,
+			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
 		),
 		'.css' => array(
-			new Codesleeve\AssetPipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			new EnvironmentFilter(new Codesleeve\AssetPipeline\Filters\CssMinFilter, App::environment()),
+			new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
 		),
 		'.css.less' => array(
-			new Codesleeve\AssetPipeline\Filters\LessphpFilter,
-			new Codesleeve\AssetPipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			new EnvironmentFilter(new Codesleeve\AssetPipeline\Filters\CssMinFilter, App::environment()),
+			new Igorgoroshit\Pipeline\Filters\LessphpFilter,
+			new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
 		),
 		'.css.sass' => array(
-			new Codesleeve\AssetPipeline\Filters\SassFilter,
-			new Codesleeve\AssetPipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			new EnvironmentFilter(new Codesleeve\AssetPipeline\Filters\CssMinFilter, App::environment()),
+			new Igorgoroshit\Pipeline\Filters\SassFilter,
+			new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
 		),
 		'.css.scss' => array(
 			new Assetic\Filter\ScssphpFilter,
-			new Codesleeve\AssetPipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			new EnvironmentFilter(new Codesleeve\AssetPipeline\Filters\CssMinFilter, App::environment()),
+			new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
 		),
 		'.less' => array(
-			new Codesleeve\AssetPipeline\Filters\LessphpFilter,
-			new Codesleeve\AssetPipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			new EnvironmentFilter(new Codesleeve\AssetPipeline\Filters\CssMinFilter, App::environment()),
+			new Igorgoroshit\Pipeline\Filters\LessphpFilter,
+			new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
 		),
 		'.sass' => array(
-			new Codesleeve\AssetPipeline\Filters\SassFilter,
-			new Codesleeve\AssetPipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			new EnvironmentFilter(new Codesleeve\AssetPipeline\Filters\CssMinFilter, App::environment()),
+			new Igorgoroshit\Pipeline\Filters\SassFilter,
+			new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
 		),
 		'.scss' => array(
 			new Assetic\Filter\ScssphpFilter,
-			new Codesleeve\AssetPipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			new EnvironmentFilter(new Codesleeve\AssetPipeline\Filters\CssMinFilter, App::environment()),
+			new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
 		),
 		'.html' => array(
-			new Codesleeve\AssetPipeline\Filters\JST,
-			new EnvironmentFilter(new Codesleeve\AssetPipeline\Filters\JSMinPlusFilter, App::environment()),
+			new Igorgoroshit\Pipeline\Filters\JST,
+			new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
 		)
 	),
 
@@ -193,7 +193,7 @@ return array(
 	| driver and also uses the AssetCache class to help access files.
 	|
 	*/
-	'cache_client' => new Codesleeve\AssetPipeline\Filters\ClientCacheFilter,
+	'cache_client' => new Igorgoroshit\Pipeline\Filters\ClientCacheFilter,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -246,7 +246,7 @@ return array(
 	| what is actually going on here.
 	|
 	*/
-	'javascript_include_tag' => new Codesleeve\AssetPipeline\Composers\JavascriptComposer,
+	'javascript_include_tag' => new Igorgoroshit\Pipeline\Composers\JavascriptComposer,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -260,7 +260,7 @@ return array(
 	| what is actually going on here.
 	|
 	*/
-	'stylesheet_link_tag' => new Codesleeve\AssetPipeline\Composers\StylesheetComposer,
+	'stylesheet_link_tag' => new Igorgoroshit\Pipeline\Composers\StylesheetComposer,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -274,7 +274,7 @@ return array(
 	| what is actually going on here.
 	|
 	*/
-	'image_tag' => new Codesleeve\AssetPipeline\Composers\ImageComposer,
+	'image_tag' => new Igorgoroshit\Pipeline\Composers\ImageComposer,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -289,7 +289,7 @@ return array(
 	| what is actually going on here.
 	|
 	*/
-	'controller_action' => '\Codesleeve\AssetPipeline\AssetPipelineController@file',
+	'controller_action' => '\Igorgoroshit\Pipeline\AssetPipelineController@file',
 
 	/*
 	|--------------------------------------------------------------------------
