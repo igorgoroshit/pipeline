@@ -5,14 +5,14 @@ use Igorgoroshit\Sprockets\StaticFilesGenerator;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class AssetsGenerateCommand extends Command
+class PipelineGenerateCommand extends Command
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'assets:generate';
+    protected $name = 'pipeline:generate';
 
     /**
      * The console command description.

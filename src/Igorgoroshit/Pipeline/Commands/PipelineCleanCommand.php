@@ -4,14 +4,14 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class AssetsCleanCommand extends Command
+class PipelineCleanCommand extends Command
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'assets:clean';
+    protected $name = 'pipeline:clean';
 
     /**
      * The console command description.

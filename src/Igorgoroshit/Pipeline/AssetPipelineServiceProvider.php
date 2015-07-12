@@ -36,29 +36,29 @@ class AssetPipelineServiceProvider extends ServiceProvider {
 			$pipeline = new AssetPipeline($parser, $generator);
 
 			// let other packages hook into pipeline configuration
-			$app['events']->fire('asset.pipeline.boot', $pipeline);
+			$app['events']->fire('pipeline.boot', $pipeline);
 
 			return $pipeline->registerAssetPipelineFilters();
 		});
 
-		$this->app['assets.setup'] = $this->app->share(function($app)
+		$this->app['pipeline.setup'] = $this->app->share(function($app)
 		{
 			return new Commands\AssetsSetupCommand;
 		});
 
-		$this->app['assets.clean'] = $this->app->share(function($app)
+		$this->app['pipeline.clean'] = $this->app->share(function($app)
 		{
 			return new Commands\AssetsCleanCommand;
 		});
 
-		$this->app['assets.generate'] = $this->app->share(function($app)
+		$this->app['pipeline.generate'] = $this->app->share(function($app)
 		{
 			return new Commands\AssetsGenerateCommand;
 		});
 
-		$this->commands('assets.setup');
-		$this->commands('assets.clean');
-		$this->commands('assets.generate');
+		$this->commands('pipeline.setup');
+		$this->commands('pipeline.clean');
+		$this->commands('pipeline.generate');
 	}
 
 	/**
