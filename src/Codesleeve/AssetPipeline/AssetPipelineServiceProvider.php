@@ -1,8 +1,8 @@
 <?php namespace Codesleeve\AssetPipeline;
 
 use Illuminate\Support\ServiceProvider;
-use Codesleeve\Sprockets\SprocketsParser;
-use Codesleeve\Sprockets\SprocketsGenerator;
+use Igorgoroshit\Sprockets\SprocketsParser;
+use Igorgoroshit\Sprockets\SprocketsGenerator;
 
 class AssetPipelineServiceProvider extends ServiceProvider {
 
