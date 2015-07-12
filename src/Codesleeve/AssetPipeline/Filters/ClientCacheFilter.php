@@ -1,4 +1,4 @@
-<?php namespace Igorgoroshit\AssetPipeline\Filters;
+<?php namespace Codesleeve\AssetPipeline\Filters;
 
 use DateTime;
 use Assetic\Asset\AssetInterface;
