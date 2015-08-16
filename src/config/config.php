@@ -178,7 +178,7 @@ return array(
 	|
 	|
 	*/
-	'cache_server' => new Assetic\Cache\FilesystemCache(App::make('path.storage') . '/cache/asset-pipeline'),
+	'cache_server' => new Assetic\Cache\FilesystemCache(storage_path() . '/cache/asset-pipeline'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -228,16 +228,16 @@ return array(
 	|
 	*/
 	'directives' => array(
-		'require ' => new Igorgoroshit\Sprockets\Directives\RequireFile,
-		'require_directory ' => new Igorgoroshit\Sprockets\Directives\RequireDirectory,
-		'require_tree ' => new Igorgoroshit\Sprockets\Directives\RequireTree,
-		'require_tree_df ' => new Igorgoroshit\Sprockets\Directives\RequireTreeDf,
-		'require_self' => new Igorgoroshit\Sprockets\Directives\RequireSelf,
-		'include ' => new Igorgoroshit\Sprockets\Directives\IncludeFile,
-		'include_directory ' => new Igorgoroshit\Sprockets\Directives\IncludeDirectory,
-		'include_tree ' => new Igorgoroshit\Sprockets\Directives\IncludeTree,
-		'stub ' => new Igorgoroshit\Sprockets\Directives\Stub,
-		'depend_on ' => new Igorgoroshit\Sprockets\Directives\DependOn,
+		'require ' 						=> new Igorgoroshit\Sprockets\Directives\RequireFile,
+		'require_directory ' 	=> new Igorgoroshit\Sprockets\Directives\RequireDirectory,
+		'require_tree ' 			=> new Igorgoroshit\Sprockets\Directives\RequireTree,
+		'require_tree_df ' 		=> new Igorgoroshit\Sprockets\Directives\RequireTreeDf,
+		'require_self' 				=> new Igorgoroshit\Sprockets\Directives\RequireSelf,
+		'include ' 						=> new Igorgoroshit\Sprockets\Directives\IncludeFile,
+		'include_directory ' 	=> new Igorgoroshit\Sprockets\Directives\IncludeDirectory,
+		'include_tree ' 			=> new Igorgoroshit\Sprockets\Directives\IncludeTree,
+		'stub ' 							=> new Igorgoroshit\Sprockets\Directives\Stub,
+		'depend_on ' 					=> new Igorgoroshit\Sprockets\Directives\DependOn,
 	),
 
 	/*

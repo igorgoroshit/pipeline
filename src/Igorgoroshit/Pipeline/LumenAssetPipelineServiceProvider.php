@@ -20,15 +20,23 @@ class LumenAssetPipelineServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		$this->package('igorgoroshit/pipeline');
+		//$this->package('igorgoroshit/pipeline');
 
 		include_once __DIR__.'/AssetPipelineGlobalHelpers.php';
 
-		$this->app['asset'] = $this->app->share(function($app)
+		//$app = $this->app;
+
+
+
+		$this->app->singleton('asset', function($app)
 		{
-			$config = $app->config->get('pipeline::config');
+			//print_r($app->getConfigurationPath('pipeline')); die();
+			//die("test");
+			$config = require __DIR__.'/../../config/config.php';
+			//print_r($config);die('test');
+			//$config = $app->config->get('pipeline::config');
 			$config['base_path'] = base_path();
-			$config['environment'] = $app['env'];
+			$config['environment'] = env('APP_ENV');
 
 			$parser = new SprocketsParser($config);
 			$generator = new SprocketsGenerator($config);
@@ -36,29 +44,46 @@ class LumenAssetPipelineServiceProvider extends ServiceProvider {
 			$pipeline = new AssetPipeline($parser, $generator);
 
 			// let other packages hook into pipeline configuration
-			$app['events']->fire('pipeline.boot', $pipeline);
+			//$app['events']->fire('pipeline.boot', $pipeline);
 
 			return $pipeline->registerAssetPipelineFilters();
 		});
 
-		$this->app['pipeline.setup'] = $this->app->share(function($app)
-		{
-			return new Commands\PipelineSetupCommand;
-		});
+		// $this->app['asset'] = $this->app->share(function($app)
+		// {
+		// 	$config = $app->config->get('pipeline::config');
+		// 	$config['base_path'] = base_path();
+		// 	$config['environment'] = $app['env'];
 
-		$this->app['pipeline.clean'] = $this->app->share(function($app)
-		{
-			return new Commands\PipelineCleanCommand;
-		});
+		// 	$parser = new SprocketsParser($config);
+		// 	$generator = new SprocketsGenerator($config);
 
-		$this->app['pipeline.generate'] = $this->app->share(function($app)
-		{
-			return new Commands\PipelineGenerateCommand;
-		});
+		// 	$pipeline = new AssetPipeline($parser, $generator);
 
-		$this->commands('pipeline.setup');
-		$this->commands('pipeline.clean');
-		$this->commands('pipeline.generate');
+		// 	// let other packages hook into pipeline configuration
+		// 	$app['events']->fire('pipeline.boot', $pipeline);
+
+		// 	return $pipeline->registerAssetPipelineFilters();
+		// });
+
+		// $this->app['pipeline.setup'] = $this->app->share(function($app)
+		// {
+		// 	return new Commands\PipelineSetupCommand;
+		// });
+
+		// $this->app['pipeline.clean'] = $this->app->share(function($app)
+		// {
+		// 	return new Commands\PipelineCleanCommand;
+		// });
+
+		// $this->app['pipeline.generate'] = $this->app->share(function($app)
+		// {
+		// 	return new Commands\PipelineGenerateCommand;
+		// });
+
+		// $this->commands('pipeline.setup');
+		// $this->commands('pipeline.clean');
+		// $this->commands('pipeline.generate');
 	}
 
 	/**
@@ -68,36 +93,11 @@ class LumenAssetPipelineServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		include __DIR__.'/../../routes.php';
+		//include __DIR__.'/../../routes.php';
 
-		$this->registerBladeExtensions();
+		//$this->registerBladeExtensions();
 	}
 
-	/**
-	 * Register custom blade extensions
-	 *  - @stylesheets()
-	 *  - @javascripts()
-	 *
-	 * @return void
-	 */
-	protected function registerBladeExtensions()
-	{
-		$blade = $this->app['view']->getEngineResolver()->resolve('blade')->getCompiler();
-
-		$blade->extend(function($value, $compiler)
-		{
-			$matcher = $compiler->createMatcher('javascripts');
-
-			return preg_replace($matcher, '$1<?php echo javascript_include_tag$2; ?>', $value);
-		});
-
-		$blade->extend(function($value, $compiler)
-		{
-			$matcher = $compiler->createMatcher('stylesheets');
-
-			return preg_replace($matcher, '$1<?php echo stylesheet_link_tag$2; ?>', $value);
-		});
-	}
 
 	/**
 	 * Get the services provided by the provider.
