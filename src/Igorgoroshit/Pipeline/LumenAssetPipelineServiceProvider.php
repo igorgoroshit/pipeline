@@ -32,7 +32,7 @@ class LumenAssetPipelineServiceProvider extends ServiceProvider {
 		{
 			//print_r($app->getConfigurationPath('pipeline')); die();
 			//die("test");
-			$config = require __DIR__.'/../../config/config.php';
+			$config = require __DIR__.'/../../config/lumen/config.php';
 			//print_r($config);die('test');
 			//$config = $app->config->get('pipeline::config');
 			$config['base_path'] = base_path();
