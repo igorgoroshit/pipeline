@@ -33,7 +33,7 @@ class AssetPipeline
      * @param  array $attributes
      * @return string
      */
-    public function javascriptIncludeTag($filename, $attributes)
+    public function javascriptIncludeTag($filename, $attributes = array())
     {
         $webPaths = array();
         $absolutePaths = $this->parser->javascriptFiles($filename);
@@ -56,7 +56,7 @@ class AssetPipeline
      * @param  array $attributes
      * @return string
      */
-    public function stylesheetLinkTag($filename, $attributes)
+    public function stylesheetLinkTag($filename, $attributes = array())
     {
         $webPaths = array();
         $absolutePaths = $this->parser->stylesheetFiles($filename);

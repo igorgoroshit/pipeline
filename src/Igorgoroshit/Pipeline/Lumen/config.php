@@ -15,6 +15,10 @@ use Igorgoroshit\Pipeline\Filters\EnvironmentFilter;
 
 return array(
 
+	'base_path' => base_path(),
+
+	'environment' => env('APP_ENV', 'production'),
+	
 	/*
 	|--------------------------------------------------------------------------
 	| routing array
@@ -27,7 +31,7 @@ return array(
 	'routing' => array(
 		'prefix' => '/assets'
 	),
-
+	
 	/*
 	|--------------------------------------------------------------------------
 	| paths
@@ -40,15 +44,8 @@ return array(
 	|
 	*/
 	'paths' => array(
-		'app/assets/javascripts',
-		'app/assets/stylesheets',
-		'app/assets/images',
-		'lib/assets/javascripts',
-		'lib/assets/stylesheets',
-		'lib/assets/images',
-		'provider/assets/javascripts',
-		'provider/assets/stylesheets',
-		'provider/assets/images'
+		'app/Assets',
+		'app/Assets'
 	),
 
 	/*
@@ -153,8 +150,21 @@ return array(
 	| command php artisan assets:clean -f somefilename.js -f application.css ...
 	|
 	*/
-	'cache' => 	array('production'),
+	'cache' => 	explode('|', env('PIPELINE_CACHE', 'production')),
 
+	/*
+	|--------------------------------------------------------------------------
+	| concat
+	|--------------------------------------------------------------------------
+	|
+	| This allows us to turn on the asset concatenation for specific
+	| environments listed below. You can turn off local environment if
+	| you are trying to troubleshoot, but you will likely have better
+	| performance if you leave concat on (except if you are doing a lot
+	| of minification stuff on each page refresh)
+	|
+	*/
+	'concat' => explode('|', env('PIPELINE_CONCAT', 'production')),
 	/*
 	|--------------------------------------------------------------------------
 	| cache_server
@@ -201,19 +211,6 @@ return array(
 	*/
 	'cache_client' => new Igorgoroshit\Pipeline\Filters\ClientCacheFilter,
 
-	/*
-	|--------------------------------------------------------------------------
-	| concat
-	|--------------------------------------------------------------------------
-	|
-	| This allows us to turn on the asset concatenation for specific
-	| environments listed below. You can turn off local environment if
-	| you are trying to troubleshoot, but you will likely have better
-	| performance if you leave concat on (except if you are doing a lot
-	| of minification stuff on each page refresh)
-	|
-	*/
-	'concat' => array('production', 'local'),
 
 	/*
 	|--------------------------------------------------------------------------
