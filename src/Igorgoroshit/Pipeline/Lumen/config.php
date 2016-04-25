@@ -62,6 +62,12 @@ return array(
 	'mimes' => array(
 	    'javascripts' => array('.js', '.js.coffee', '.coffee', '.html', '.min.js', '.emb', '.hbs'),
 	    'stylesheets' => array('.css', '.css.less', '.css.sass', '.css.scss', '.less', '.sass', '.scss', '.min.css'),
+			'sourcemaps'	=> array('.js.map', '.css.map', '.min.js.map', '.min.css.map')
+	),
+
+	'block-maps-for' => array(
+		'vendor.js',
+		'vendor.css'
 	),
 
 	/*
@@ -329,6 +335,7 @@ return array(
 	'sprockets_filters' => array(
 		'javascripts' => array(),
 		'stylesheets' => array(),
+		'sourcemaps'	=> array(),
 	),
 
 );

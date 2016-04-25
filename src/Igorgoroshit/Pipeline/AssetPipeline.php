@@ -113,6 +113,23 @@ class AssetPipeline
     }
 
     /**
+    * Is this filename a stylesheet type?
+    *
+    * @param  string $filename
+    * @return boolean
+    */
+    public function isSourcemap($filename)
+    {
+        //die($this->parser->absoluteJavascriptPath();
+        //temporary remove map extansion
+        //need improvment
+        $filename = str_replace('.map', '', $filename);
+        $temp = $this->parser->absoluteSourcemapPath($filename);
+        //die($temp);
+        return $temp;
+    }
+
+    /**
      * Is this filename any type of file?
      *
      * @param  string  $filename
@@ -145,6 +162,17 @@ class AssetPipeline
     public function stylesheet($absolutePath)
     {
         return $this->generator->stylesheet($absolutePath);
+    }
+
+    /**
+     * Return the stylesheet associated with this path
+     *
+     * @param  string $absolutePath
+     * @return string
+     */
+    public function sourcemap($absolutePath)
+    {
+        return $this->generator->sourcemap($absolutePath);
     }
 
     /**

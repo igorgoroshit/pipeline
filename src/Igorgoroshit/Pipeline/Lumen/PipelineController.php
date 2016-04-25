@@ -29,6 +29,11 @@ class PipelineController extends Controller
 			return $this->stylesheet($absolutePath);
 		}
 
+		$absolutePath = Asset::isSourcemap($path);
+		if($absolutePath) {
+			return $this->sourcemap($absolutePath);
+		}
+
 		$absolutePath = Asset::isFile($path);
 		if ($absolutePath)
 		{
@@ -47,7 +52,6 @@ class PipelineController extends Controller
 	private function javascript($path)
 	{
 		$response = new Response(Asset::javascript($path), 200);
-
 		$response->header('Content-Type', 'application/javascript');
 
 		return $response;
@@ -66,6 +70,19 @@ class PipelineController extends Controller
 		return $response;
 	}
 
+	/**
+	 * Returns css for the given path
+	 *
+	 * @return \Illuminate\Support\Facades\Response
+	 */
+	private function sourcemap($path)
+	{
+		$path = str_replace('.map', '', $path);
+		$response = new Response(Asset::sourcemap($path), 200);
+		$response->header('Content-Type', 'text/json');
+
+		return $response;
+	}
 	/**
 	 * Client cache regular files that are not
 	 * javascript or stylesheets files
