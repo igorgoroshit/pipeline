@@ -60,7 +60,7 @@ return array(
 	|
 	*/
 	'mimes' => array(
-	    'javascripts' => array('.js', '.js.coffee', '.coffee', '.html', '.min.js', '.emb', '.hbs'),
+	    'javascripts' => array('.js', '.js.coffee', '.coffee', '.html', '.min.js', '.emb', '.hbs', '.i18n.json'),
 	    'stylesheets' => array('.css', '.css.less', '.css.sass', '.css.scss', '.less', '.sass', '.scss', '.min.css'),
 			'sourcemaps'	=> array('.js.map', '.css.map', '.min.js.map', '.min.css.map')
 	),
@@ -141,6 +141,9 @@ return array(
 		),
 		'.hbs' => array(
 			new Igorgoroshit\Pipeline\Filters\HandlebarsFilter
+		),
+		'.i18n.json' => array(
+			new Igorgoroshit\Pipeline\Filters\I18nFilters
 		)
 	),
 
