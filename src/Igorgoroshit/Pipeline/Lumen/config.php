@@ -143,7 +143,7 @@ return array(
 			new Igorgoroshit\Pipeline\Filters\HandlebarsFilter
 		),
 		'.i18n.json' => array(
-			new Igorgoroshit\Pipeline\Filters\I18nFilters
+			new Igorgoroshit\Pipeline\Filters\I18nFilter
 		)
 	),
 
