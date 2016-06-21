@@ -99,7 +99,7 @@ return array(
 			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
 		),
 		'.css' => array(
-			//new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
 			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
 		),
 		'.css.less' => array(
