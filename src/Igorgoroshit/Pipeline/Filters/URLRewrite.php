@@ -96,7 +96,7 @@ class URLRewrite extends FilterHelper implements FilterInterface
      */
     public function found_file_match($url)
     {
-        if ($url[0] != '/' && $this->fileExists($this->root . $url)) {
+        if (isset($url[0]) && $url[0] != '/' && $this->fileExists($this->root . $url)) {
             return array(true, $this->baseurl . $this->prefix . $this->base . $url);
         }
 

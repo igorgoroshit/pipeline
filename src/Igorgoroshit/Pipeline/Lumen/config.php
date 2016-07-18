@@ -70,6 +70,8 @@ return array(
 		'vendor.css'
 	),
 
+	'sourcemaps' => env('PIPELINE_SOURCEMAPS', false),
+
 	/*
 	|--------------------------------------------------------------------------
 	| filters

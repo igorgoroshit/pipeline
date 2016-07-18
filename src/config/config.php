@@ -15,6 +15,9 @@ use Igorgoroshit\Pipeline\Filters\EnvironmentFilter;
 
 return array(
 
+	'base_path' => base_path(),
+
+	'environment' => App::environment(),
 	/*
 	|--------------------------------------------------------------------------
 	| routing array
@@ -63,9 +66,17 @@ return array(
 	|
 	*/
 	'mimes' => array(
-	    'javascripts' => array('.js', '.js.coffee', '.coffee', '.html', '.min.js', '.emb', '.hbs'),
+	    'javascripts' => array('.js', '.js.coffee', '.coffee', '.html', '.min.js', '.emb', '.hbs', '.i18n.json'),
 	    'stylesheets' => array('.css', '.css.less', '.css.sass', '.css.scss', '.less', '.sass', '.scss', '.min.css'),
+			'sourcemaps'	=> array('.js.map', '.css.map', '.min.js.map', '.min.css.map')
 	),
+
+	'block-maps-for' => array(
+		'vendor.js',
+		'vendor.css'
+	),
+
+	'sourcemaps' => false,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -96,7 +107,7 @@ return array(
 			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
 		),
 		'.css' => array(
-			//new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
 			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
 		),
 		'.css.less' => array(
@@ -138,6 +149,9 @@ return array(
 		),
 		'.hbs' => array(
 			new Igorgoroshit\Pipeline\Filters\HandlebarsFilter
+		),
+		'.i18n.json' => array(
+			new Igorgoroshit\Pipeline\Filters\I18nFilter
 		)
 	),
 
@@ -332,6 +346,7 @@ return array(
 	'sprockets_filters' => array(
 		'javascripts' => array(),
 		'stylesheets' => array(),
+		'sourcemaps'	=> array(),
 	),
 
 );

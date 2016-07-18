@@ -22,6 +22,11 @@ class PipelineController extends Controller
 			return $this->stylesheet($absolutePath);
 		}
 
+		$absolutePath = Asset::isSourcemap($path);
+		if($absolutePath) {
+			return $this->sourcemap($absolutePath);
+		}
+
 		$absolutePath = Asset::isFile($path);
 		if ($absolutePath)
 		{
@@ -56,6 +61,20 @@ class PipelineController extends Controller
 		$response = Response::make(Asset::stylesheet($path), 200);
 
 		$response->header('Content-Type', 'text/css');
+
+		return $response;
+	}
+
+	/**
+	 * Returns css for the given path
+	 *
+	 * @return \Illuminate\Support\Facades\Response
+	 */
+	private function sourcemap($path)
+	{
+		$path = str_replace('.map', '', $path);
+		$response = Response::make(Asset::sourcemap($path), 200);
+		$response->header('Content-Type', 'text/json');
 
 		return $response;
 	}
