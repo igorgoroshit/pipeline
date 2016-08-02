@@ -34,29 +34,20 @@ class HBSFilter extends FilterHelper implements FilterInterface
         $dirname = explode("templates/", dirname($relativePath . $filename) . '/');
         $parent_dir = ((count($dirname) > 0) ? $dirname[1] : "");
 
-        $content = $asset->getContent();//str_replace('"', '\\"', );
-        //$content = str_replace("\r\n", "\n", $content);
-        //$content = str_replace("\n", "\\n", $content);
-        
+        $content = $asset->getContent();
         
         self::$v8js->templateString = $content;
 
         $jsCode = 'compiler.precompile(PHP.templateString, false);';
 
         try {
-          // ob_start();
-           $result = self::$v8js->executeString($jsCode);
-           //die($result);
-          // $content = ob_get_contents();
+            $result = self::$v8js->executeString($jsCode);
         }
         catch(\V8JsException $e) {
-            print_r($e);die();
-         //   ob_end_clean();
             throw new \Exception($e->getMessage(), 1);
         }
 
         $emblem = 'Ember.TEMPLATES["' . $parent_dir . $filename . '"] = Ember.HTMLBars.template(';
-        //$emblem .= $content;
         $emblem .= $result;
         $emblem .= ');' . PHP_EOL;
 
