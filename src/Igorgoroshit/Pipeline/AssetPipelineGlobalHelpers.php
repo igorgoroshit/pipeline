@@ -10,17 +10,17 @@ if (!function_exists('stylesheet_link_tag'))
 
 if (!function_exists('javascript_include_tag'))
 {
-	function javascript_include_tag($file = 'application', $attributes = array())
+	function javascript_include_tag($file = 'application', $attributes = array(), $version = null)
 	{
-		return App::make('asset')->javascriptIncludeTag($file, $attributes);
+		return App::make('asset')->javascriptIncludeTag($file, $attributes, $version);
 	}
 }
 
 if (!function_exists('javascriptIncludeTag'))
 {
-	function javascriptIncludeTag($file = 'application', $attributes = array())
+	function javascriptIncludeTag($file = 'application', $attributes = array(), $version = null)
 	{
-		return App::make('asset')->javascriptIncludeTag($file, $attributes);
+		return App::make('asset')->javascriptIncludeTag($file, $attributes, $version);
 	}
 }
 

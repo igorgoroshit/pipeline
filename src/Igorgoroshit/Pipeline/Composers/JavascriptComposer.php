@@ -10,14 +10,16 @@ class JavascriptComposer extends BaseComposer implements ComposerInterface
      * @param  array $attributes
      * @return void
      */
-    public function process($paths, $absolutePaths, $attributes)
+    public function process($paths, $absolutePaths, $attributes, $version = null)
     {
         $url = url();
         $attributesAsText = $this->attributesArrayToText($attributes);
 
+        $version = ($version) ? "?v=$version" : "";
+
         foreach ($paths as $path)
         {
-            print "<script src=\"${url}{$path}\" {$attributesAsText}></script>" . PHP_EOL;
+            print "<script src=\"${url}{$path}{$version}\" {$attributesAsText}></script>" . PHP_EOL;
         }
     }
 }

@@ -33,7 +33,7 @@ class AssetPipeline
      * @param  array $attributes
      * @return string
      */
-    public function javascriptIncludeTag($filename, $attributes = array())
+    public function javascriptIncludeTag($filename, $attributes = array(), $version = null)
     {
         $webPaths = array();
         $absolutePaths = $this->parser->javascriptFiles($filename);
@@ -46,7 +46,7 @@ class AssetPipeline
         $config = $this->getConfig();
         $composer = $config['javascript_include_tag'];
 
-        return $composer->process($webPaths, $absolutePaths, $attributes);
+        return $composer->process($webPaths, $absolutePaths, $attributes, $version);
     }
 
     /**
