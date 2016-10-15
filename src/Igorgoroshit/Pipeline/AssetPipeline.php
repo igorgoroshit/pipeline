@@ -56,7 +56,7 @@ class AssetPipeline
      * @param  array $attributes
      * @return string
      */
-    public function stylesheetLinkTag($filename, $attributes = array())
+    public function stylesheetLinkTag($filename, $attributes = array(), $version = null)
     {
         $webPaths = array();
         $absolutePaths = $this->parser->stylesheetFiles($filename);
@@ -69,7 +69,7 @@ class AssetPipeline
         $config = $this->getConfig();
         $composer = $config['stylesheet_link_tag'];
 
-        return $composer->process($webPaths, $absolutePaths, $attributes);
+        return $composer->process($webPaths, $absolutePaths, $attributes, $version);
     }
 
     /**

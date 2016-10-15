@@ -105,8 +105,8 @@ return array(
 			new Filters\EmblemFilter
 		),
 		'.hbs' => array(
-			new Filters\HandlebarsFilter
-			//new Filters\HBSFilter
+			//new Filters\HandlebarsFilter
+			new Filters\HBSFilter
 		),
 		'.i18n.json' => array(
 			new Filters\I18nFilter
