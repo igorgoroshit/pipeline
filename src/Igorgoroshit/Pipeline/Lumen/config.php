@@ -11,7 +11,9 @@
 | new EnvironmentFilter(new FilterExample, App::environment(), array('production', 'staging')),
 |
 */
-use Igorgoroshit\Pipeline\Filters\EnvironmentFilter;
+use Igorgoroshit\Pipeline\Filters as Filters;
+use Igorgoroshit\Sprockets\Directives as Directives;
+use Igorgoroshit\Pipeline\Composers as Composers;
 
 return array(
 
@@ -60,8 +62,8 @@ return array(
 	|
 	*/
 	'mimes' => array(
-	    'javascripts' => array('.js', '.js.coffee', '.coffee', '.html', '.min.js', '.emb', '.hbs', '.i18n.json'),
-	    'stylesheets' => array('.css', '.css.less', '.css.sass', '.css.scss', '.less', '.sass', '.scss', '.min.css'),
+	    'javascripts' => array('.js', '.emb', '.hbs', '.i18n.json', '.min.js'),
+	    'stylesheets' => array('.css', '.less', '.min.css'),
 			'sourcemaps'	=> array('.js.map', '.css.map', '.min.js.map', '.min.css.map')
 	),
 
@@ -87,65 +89,27 @@ return array(
 
 		),
 		'.min.css' => array(
-			//new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
+			//new Filters\URLRewrite(App::make('url')->to('/')),
 		),
 		'.js' => array(
-			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
-		),
-		'.js.coffee' => array(
-			//new Igorgoroshit\Pipeline\Filters\CoffeeScript,
-			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
-		),
-		'.coffee' => array(
-			//new Igorgoroshit\Pipeline\Filters\CoffeeScript,
-			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
+
 		),
 		'.css' => array(
-			new Igorgoroshit\Pipeline\Filters\URLRewrite(url('/')),
-			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
-		),
-		'.css.less' => array(
-			new Igorgoroshit\Pipeline\Filters\LessphpFilter,
-			//new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
-		),
-		'.css.sass' => array(
-			new Igorgoroshit\Pipeline\Filters\SassFilter,
-			//new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
-		),
-		'.css.scss' => array(
-			new Assetic\Filter\ScssphpFilter,
-			//new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
+			new Filters\URLRewrite(url('/')),
+			//new Filters\EnvironmentFilter(new Filters\CssMinFilter, App::environment()),
 		),
 		'.less' => array(
-			new Igorgoroshit\Pipeline\Filters\LessphpFilter,
-			//new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
-		),
-		'.sass' => array(
-			new Igorgoroshit\Pipeline\Filters\SassFilter,
-			//new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
-		),
-		'.scss' => array(
-			new Assetic\Filter\ScssphpFilter,
-			//new Igorgoroshit\Pipeline\Filters\URLRewrite(App::make('url')->to('/')),
-			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\CssMinFilter, App::environment()),
-		),
-		'.html' => array(
-			//new Igorgoroshit\Pipeline\Filters\JST,
-			//new EnvironmentFilter(new Igorgoroshit\Pipeline\Filters\JSMinPlusFilter, App::environment()),
+			new Filters\LessphpFilter,
 		),
 		'.emb' => array(
-			new Igorgoroshit\Pipeline\Filters\EmblemFilter
+			new Filters\EmblemFilter
 		),
 		'.hbs' => array(
-			new Igorgoroshit\Pipeline\Filters\HandlebarsFilter
+			new Filters\HandlebarsFilter
+			//new Filters\HBSFilter
 		),
 		'.i18n.json' => array(
-			new Igorgoroshit\Pipeline\Filters\I18nFilter
+			new Filters\I18nFilter
 		)
 	),
 
@@ -220,7 +184,7 @@ return array(
 	| driver and also uses the AssetCache class to help access files.
 	|
 	*/
-	'cache_client' => new Igorgoroshit\Pipeline\Filters\ClientCacheFilter,
+	'cache_client' => new Filters\ClientCacheFilter,
 
 
 	/*
@@ -236,16 +200,16 @@ return array(
 	|
 	*/
 	'directives' => array(
-		'require ' 						=> new Igorgoroshit\Sprockets\Directives\RequireFile,
-		'require_directory ' 	=> new Igorgoroshit\Sprockets\Directives\RequireDirectory,
-		'require_tree ' 			=> new Igorgoroshit\Sprockets\Directives\RequireTree,
-		'require_tree_df ' 		=> new Igorgoroshit\Sprockets\Directives\RequireTreeDf,
-		'require_self' 				=> new Igorgoroshit\Sprockets\Directives\RequireSelf,
-		'include ' 						=> new Igorgoroshit\Sprockets\Directives\IncludeFile,
-		'include_directory ' 	=> new Igorgoroshit\Sprockets\Directives\IncludeDirectory,
-		'include_tree ' 			=> new Igorgoroshit\Sprockets\Directives\IncludeTree,
-		'stub ' 							=> new Igorgoroshit\Sprockets\Directives\Stub,
-		'depend_on ' 					=> new Igorgoroshit\Sprockets\Directives\DependOn,
+		'require ' 						=> new Directives\RequireFile,
+		'require_directory ' 	=> new Directives\RequireDirectory,
+		'require_tree ' 			=> new Directives\RequireTree,
+		'require_tree_df ' 		=> new Directives\RequireTreeDf,
+		'require_self' 				=> new Directives\RequireSelf,
+		'include ' 						=> new Directives\IncludeFile,
+		'include_directory ' 	=> new Directives\IncludeDirectory,
+		'include_tree ' 			=> new Directives\IncludeTree,
+		'stub ' 							=> new Directives\Stub,
+		'depend_on ' 					=> new Directives\DependOn,
 	),
 
 	/*
@@ -260,7 +224,7 @@ return array(
 	| what is actually going on here.
 	|
 	*/
-	'javascript_include_tag' => new Igorgoroshit\Pipeline\Composers\JavascriptComposer,
+	'javascript_include_tag' => new Composers\JavascriptComposer,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -274,7 +238,7 @@ return array(
 	| what is actually going on here.
 	|
 	*/
-	'stylesheet_link_tag' => new Igorgoroshit\Pipeline\Composers\StylesheetComposer,
+	'stylesheet_link_tag' => new Composers\StylesheetComposer,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -288,7 +252,7 @@ return array(
 	| what is actually going on here.
 	|
 	*/
-	'image_tag' => new Igorgoroshit\Pipeline\Composers\ImageComposer,
+	'image_tag' => new Composers\ImageComposer,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -318,7 +282,7 @@ return array(
 	| what is actually going on here.
 	|
 	*/
-	'sprockets_filter' => '\Igorgoroshit\Sprockets\SprocketsFilter',
+	'sprockets_filter' => Igorgoroshit\Sprockets\SprocketsFilter::class,
 
 	/*
 	|--------------------------------------------------------------------------
