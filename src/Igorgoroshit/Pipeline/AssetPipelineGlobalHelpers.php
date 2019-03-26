@@ -2,9 +2,9 @@
 
 if (!function_exists('stylesheet_link_tag'))
 {
-	function stylesheet_link_tag($file = 'application', $attributes = array())
+	function stylesheet_link_tag($file = 'application', $attributes = array(), $version = null)
 	{
-		return App::make('asset')->stylesheetLinkTag($file, $attributes);
+		return App::make('asset')->stylesheetLinkTag($file, $attributes, $version);
 	}
 }
 
@@ -26,9 +26,9 @@ if (!function_exists('javascriptIncludeTag'))
 
 if (!function_exists('stylesheetLinkTag'))
 {
-	function stylesheetLinkTag($file = 'application', $attributes = array())
+	function stylesheetLinkTag($file = 'application', $attributes = array(), $version = null)
 	{
-		return App::make('asset')->stylesheetLinkTag($file, $attributes);
+		return App::make('asset')->stylesheetLinkTag($file, $attributes, $version);
 	}
 }
 
