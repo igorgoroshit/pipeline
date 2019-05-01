@@ -14,9 +14,9 @@ class HBSFilter extends FilterHelper implements FilterInterface
         if(!isset(self::$v8js))
         {
             self::$v8js = new \V8Js();
-            $pathToCompiler = base_path('app/Assets/vendor/ember/ember-template-compiler.js');
+            $pathToCompiler = base_path('app/Assets/vendor/ember-2.12.2/ember-template-compiler.js');
             $compilerSource = file_get_contents($pathToCompiler);
-            self::$v8js->executeString("EmberENV = {}; EmberENV['_ENABLE_LEGACY_VIEW_SUPPORT'] = true; window = {}; self = {};\n $compilerSource \n var compiler = Ember.__loader.require('ember-template-compiler');");  
+            self::$v8js->executeString("EmberENV = {}; EmberENV['_ENABLE_LEGACY_VIEW_SUPPORT'] = false; window = {}; self = {};\n $compilerSource \n var compiler = Ember.__loader.require('ember-template-compiler');");  
         }
     }
 
