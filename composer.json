@@ -20,14 +20,18 @@
 		{
 			"type": "vcs",
 			"url": "https://github.com/igorgoroshit/sprockets"
-		}
+		},
+        {
+            "type": "vcs",
+            "url": "https://github.com/igorgoroshit/assetic"
+        }
     ],
     
     "require": {
         "php": "^7.2",
         "illuminate/support": "~6.0",
         "igorgoroshit/sprockets": "6.0.0",
-        "kriswallsmith/assetic": "v1.1.2",
+        "kriswallsmith/assetic": "6.0.0",
         "ext-fileinfo": "*"
     },
     
