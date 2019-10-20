@@ -18,28 +18,24 @@
     
     "repositories": [
 		{
-			"type": "vcs",
+			"type": "git",
 			"url": "https://github.com/igorgoroshit/sprockets"
 		},
         {
-            "type": "vcs",
-            "url": "https://github.com/igorgoroshit/assetic"
+            "type": "git",
+            "url": "https://github.com/igorgoroshit/assetic"            
         }
     ],
     
     "require": {
-        "php": "^7.2",
-        "illuminate/support": "~6.0",
+        "php":                    "^7.2",
+        "illuminate/support":     "~6.0",
         "igorgoroshit/sprockets": "6.0.0",
-        "kriswallsmith/assetic": "6.0.0",
-        "ext-fileinfo": "*"
+        "kriswallsmith/assetic":  "6.0.0",
+        "ext-fileinfo":           "*"
     },
     
     "autoload": {
-
-        "classmap": [
-            "src/controllers"
-        ],
         
         "psr-0": {
             "Igorgoroshit\\Pipeline": "src/"

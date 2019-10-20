@@ -7,4 +7,4 @@
 // 	Route::get('{path}', Config::get('pipeline::controller_action'))->where('path', '(?!\.\.)(.*)');
 // });
 
-$this->app->get('assets/{path:.*}', '\Igorgoroshit\Pipeline\Lumen\PipelineController@file');
+$this->app->router->get('assets/{path:.*}', '\Igorgoroshit\Pipeline\Lumen\PipelineController@file');
