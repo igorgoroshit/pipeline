@@ -12,7 +12,7 @@ class StylesheetComposer extends BaseComposer implements ComposerInterface
      */
     public function process($paths, $absolutePaths, $attributes, $version = null)
     {
-        $url = url();
+        $url = url('/');
         $attributesAsText = $this->attributesArrayToText($attributes);
 
         $version = ($version) ? "?v=$version" : "";

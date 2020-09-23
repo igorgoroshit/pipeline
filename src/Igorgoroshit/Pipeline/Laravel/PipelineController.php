@@ -19,7 +19,6 @@ class PipelineController extends Controller
 	 */
 	public function file($path)
 	{
-		//die($path);
 		$absolutePath = Asset::isJavascript($path);
 		if ($absolutePath) {
 			return $this->javascript($absolutePath);

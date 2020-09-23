@@ -120,7 +120,8 @@ class AssetPipeline
     */
     public function isSourcemap($filename)
     {
-        //die($this->parser->absoluteJavascriptPath();
+        die($filename);
+        die($this->parser->absoluteJavascriptPath($filename));
         //temporary remove map extansion
         //need improvment
         $filename = str_replace('.map', '', $filename);
