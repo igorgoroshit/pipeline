@@ -46,7 +46,6 @@ return array(
 	|
 	*/
 	'paths' => array(
-		'app/Assets',
 		'app/Assets'
 	),
 
