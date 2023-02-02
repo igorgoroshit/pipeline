@@ -46,6 +46,7 @@ return array(
 	|
 	*/
 	'paths' => array(
+		'app/Assets',
 		'resources/assets/javascripts',
 		'resources/assets/stylesheets',
 		'resources/provider/assets/javascripts',
