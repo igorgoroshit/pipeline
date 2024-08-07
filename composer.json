@@ -27,10 +27,10 @@
     ],
     
     "require": {
-        "php":                    "^7.2|^7.4|^8.0",
-        "illuminate/support":     "^6.0|^7.0|^8.0",
-        "igorgoroshit/sprockets": "6.0.1",
-        "kriswallsmith/assetic":  "6.0.0",
+        "php":                    "~7.2|~7.4|~8.0",
+        "illuminate/support":     "~7.0|~8.0",
+        "igorgoroshit/sprockets": "7.0.0",
+        "kriswallsmith/assetic":  "7.0.0",
         "ext-fileinfo":           "*"
     },
     
