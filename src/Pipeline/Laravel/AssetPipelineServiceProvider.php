@@ -24,9 +24,9 @@ class AssetPipelineServiceProvider extends ServiceProvider {
 		
 		$this->app->singleton('asset', function($app)
 		{
-			$config 		= require __DIR__.'/config.php';
+			$config 	= require __DIR__.'/config.php';
 
-			$parser 		= new SprocketsParser($config);
+			$parser 	= new SprocketsParser($config);
 			$generator 	= new SprocketsGenerator($config);
 			$pipeline 	= new AssetPipeline($parser, $generator);
 
