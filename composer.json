@@ -38,7 +38,7 @@
         
         "psr-4": {
             "Igorgoroshit\\Pipeline": "src/"
-        },
+        }
 
     },
 
