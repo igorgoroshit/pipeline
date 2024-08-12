@@ -57,6 +57,7 @@ return array(
 		'resources/assets/stylesheets',
 		'resources/provider/assets/javascripts',
 		'resources/provider/assets/stylesheets',
+		'vendor/components'
 	),
 
 	/*
