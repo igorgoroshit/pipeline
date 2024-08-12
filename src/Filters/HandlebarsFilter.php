@@ -29,9 +29,12 @@ class HandlebarsFilter extends FilterHelper implements FilterInterface
         $content = str_replace("\r\n", "\n", $content);
         $content = str_replace("\n", "\\n", $content);
         
-        $emblem = 'Ember.TEMPLATES["' . $parent_dir . $filename . '"] = Ember.Handlebars.compile("';
+        $templateName = "{$parent_dir}{$filename}";
+
+        $emblem  = "try{Ember.TEMPLATES[\"{$templateName}\"] = Ember.Handlebars.compile(\"";
         $emblem .= $content;
-        $emblem .= '");' . PHP_EOL;
+        $emblem .= "\");";
+        $emblem .= "}\n catch(e) { throw new Error('Template \'{$templateName}\' ' + e.message); }";
 
         $asset->setContent($emblem);
     }
