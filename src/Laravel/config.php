@@ -111,12 +111,8 @@ return array(
 		'.less' => array(
 			new Filters\LessphpFilter,
 		),
-		'.emb' => array(
-			new Filters\EmblemFilter
-		),
 		'.hbs' => array(
-			new Filters\HandlebarsFilter
-			//new Filters\HBSFilter
+			new Filters\EmberHBS
 		),
 		'.i18n.json' => array(
 			new Filters\I18nFilter
