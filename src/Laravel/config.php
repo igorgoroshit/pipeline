@@ -57,7 +57,8 @@ return array(
 		'resources/assets/stylesheets',
 		'resources/provider/assets/javascripts',
 		'resources/provider/assets/stylesheets',
-		'vendor/components'
+		'vendor/components',
+		'vendor/npm-asset',
 	),
 
 	/*
@@ -73,8 +74,8 @@ return array(
 	*/
 	'mimes' => array(
 	    'javascripts' => array('.js', '.emb', '.hbs', '.i18n.json', '.min.js'),
-	    'stylesheets' => array('.css', '.less', '.min.css'),
-			'sourcemaps'	=> array('.js.map', '.css.map', '.min.js.map', '.min.css.map')
+	    'stylesheets' => array('.css', '.scss', '.less', '.min.css'),
+		'sourcemaps'  => array('.js.map', '.css.map', '.min.js.map', '.min.css.map')
 	),
 
 	'block-maps-for' => array(
@@ -111,6 +112,9 @@ return array(
 		'.less' => array(
 			new Filters\LessphpFilter,
 		),
+		'.scss' => [
+		    new Filters\ScssFilter,
+		],
 		'.hbs' => array(
 			new Filters\EmberHBS
 		),

@@ -3,7 +3,7 @@
     "description": "A very simple and easy to use asset pipeline for laravel 6.",
     "type": "library",
     "license": "MIT",
-    "version": "7.0.3",
+    "version": "7.0.4",
     "authors": [
         {
             "name": "Kelt Dockins",
@@ -29,7 +29,7 @@
     "require": {
         "php":                    "~7.2|~7.4|~8.0",
         "illuminate/support":     "~7.0|~8.0",
-        "igorgoroshit/sprockets": "^7.0.1",
+        "igorgoroshit/sprockets": "^7.0.4",
         "kriswallsmith/assetic":  "7.0.0",
         "ext-fileinfo":           "*"
     },
