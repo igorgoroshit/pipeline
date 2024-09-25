@@ -15,6 +15,7 @@ class AssetPipeline
      */
     private $generator;
 
+    protected $allowedPaths = [];
     /**
      * Create the asset repository based on this setup
      *
@@ -24,6 +25,13 @@ class AssetPipeline
     {
         $this->parser = $parser;
         $this->generator = $generator;
+
+        $base  = $parser->config['base_path'];
+        $paths = $parser->config['paths'];
+
+        $this->allowedPaths = array_map( function($item) use ($base) {
+            return "{$base}/{$item}";
+        }, $paths);
     }
 
     /**
@@ -120,8 +128,7 @@ class AssetPipeline
     */
     public function isSourcemap($filename)
     {
-        //die($filename);
-        //die($this->parser->absoluteJavascriptPath($filename));
+        //die($this->parser->absoluteJavascriptPath();
         //temporary remove map extansion
         //need improvment
         $filename = str_replace('.map', '', $filename);
@@ -130,6 +137,31 @@ class AssetPipeline
         return $temp;
     }
 
+    protected function allowFile($absolutePath)
+    {
+        $realFilePath = realpath($absolutePath);
+        $info         = pathinfo($realFilePath);
+        $allowFile    = false;
+
+        // Check whether the requested file has an extension.
+        if(!isset($info['extension'])) {
+            return false;
+        }
+
+        // Check whether the requested file name starts with a dot
+        if($info['basename'][0] === '.') {
+            return false;
+        }
+
+        // Check whether the requested file is located in one of the allowed paths.
+        foreach ($this->allowedPaths as $path) {
+            if(strpos($realFilePath, $path) === 0) {
+                return true;
+            }
+        }
+
+        return false;
+    }
     /**
      * Is this filename any type of file?
      *
@@ -140,7 +172,7 @@ class AssetPipeline
     {
         $absolutePath = $this->parser->absoluteFilePath($filename);
 
-        return file_exists($absolutePath) && is_file($absolutePath) ? $absolutePath : null;
+        return $this->allowFile($absolutePath) && file_exists($absolutePath) && is_file($absolutePath) ? $absolutePath : null;
     }
 
     /**
