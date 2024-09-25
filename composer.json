@@ -2,7 +2,7 @@
     "name": "igorgoroshit/pipeline",
     "description": "A very simple and easy to use asset pipeline for laravel 4.",
     "type": "library",
-    "version": "5.2.1",
+    "version": "5.3.1",
     "license": "MIT",
 
     "authors": [
@@ -43,6 +43,12 @@
         
         "psr-0": {
             "Igorgoroshit\\Pipeline": "src/"
+        }
+    },
+
+    "extra": {
+        "branch-alias": {
+            "dev-master": "5.3.1-branch"
         }
     }
 }
