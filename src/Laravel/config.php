@@ -46,17 +46,9 @@ return array(
 	|
 	*/
 	'paths' => array(
-		'app/Assets',
-		'app/assets/javascripts',
-		'app/assets/stylesheets',
-		'app/assets/vendor',
-		'app/assets',
-		'provider/assets/javascripts',
-		'provider/assets/stylesheets',
 		'resources/assets/javascripts',
 		'resources/assets/stylesheets',
-		'resources/provider/assets/javascripts',
-		'resources/provider/assets/stylesheets',
+		'vendor/npm',
 		'vendor/components',
 		'vendor/npm-asset',
 	),
@@ -73,8 +65,8 @@ return array(
 	|
 	*/
 	'mimes' => array(
-	    'javascripts' => array('.js', '.emb', '.hbs', '.i18n.json', '.min.js'),
-	    'stylesheets' => array('.css', '.scss', '.less', '.min.css'),
+	    'javascripts' => array('.js',  '.hbs', '.min.js'),
+	    'stylesheets' => array('.css', '.scss', '.min.css'),
 		'sourcemaps'  => array('.js.map', '.css.map', '.min.js.map', '.min.css.map')
 	),
 
@@ -95,33 +87,32 @@ return array(
 	| we choose to.
 	|
 	*/
-	'filters' => array(
-		'.min.js' => array(
+	'filters' => [
 
-		),
-		'.min.css' => array(
+		'.min.js' => [
+		],
+
+		'.min.css' => [
 			//new Filters\URLRewrite(App::make('url')->to('/')),
-		),
-		'.js' => array(
+		],
 
-		),
-		'.css' => array(
+		'.js' => [
+		],
+
+		'.css' => [
 			new Filters\URLRewrite(url('/')),
 			//new Filters\EnvironmentFilter(new Filters\CssMinFilter, App::environment()),
-		),
-		'.less' => array(
-			new Filters\LessphpFilter,
-		),
+		],
+
 		'.scss' => [
 		    new Filters\ScssFilter,
 		],
-		'.hbs' => array(
+
+		'.hbs' => [
 			new Filters\EmberHBS
-		),
-		'.i18n.json' => array(
-			new Filters\I18nFilter
-		)
-	),
+		],
+
+	],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -173,7 +164,7 @@ return array(
 	|
 	|
 	*/
-	'cache_server' => new Assetic\Cache\FilesystemCache(storage_path() . '/cache/asset-pipeline'),
+	'cache_server' => new Assetic\Cache\FilesystemCache(storage_path('cache/asset-pipeline')),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -209,7 +200,7 @@ return array(
 	| what is actually going on here.
 	|
 	*/
-	'directives' => array(
+	'directives' => [
 		'require ' 						=> new Directives\RequireFile,
 		'require_directory ' 	=> new Directives\RequireDirectory,
 		'require_tree ' 			=> new Directives\RequireTree,
@@ -220,7 +211,7 @@ return array(
 		'include_tree ' 			=> new Directives\IncludeTree,
 		'stub ' 							=> new Directives\Stub,
 		'depend_on ' 					=> new Directives\DependOn,
-	),
+	],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -311,10 +302,10 @@ return array(
 	| what is actually going on here.
 	|
 	*/
-	'sprockets_filters' => array(
-		'javascripts' => array(),
-		'stylesheets' => array(),
-		'sourcemaps'	=> array(),
-	),
+	'sprockets_filters' => [
+		'javascripts' => [],
+		'stylesheets' => [],
+		'sourcemaps'  => [],
+	],
 
 );
