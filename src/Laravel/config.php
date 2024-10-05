@@ -93,23 +93,21 @@ return array(
 		],
 
 		'.min.css' => [
-			//new Filters\URLRewrite(App::make('url')->to('/')),
 		],
 
 		'.js' => [
 		],
 
 		'.css' => [
-			new Filters\URLRewrite(url('/')),
-			//new Filters\EnvironmentFilter(new Filters\CssMinFilter, App::environment()),
+			new Filters\URLRewrite(),
 		],
 
 		'.scss' => [
-		    new Filters\ScssFilter,
+		    new Filters\ScssFilter(),
 		],
 
 		'.hbs' => [
-			new Filters\EmberHBS
+			new Filters\EmberHBS(),
 		],
 
 	],

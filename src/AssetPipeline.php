@@ -35,6 +35,10 @@ class AssetPipeline
         }, $paths);
     }
 
+    public function getAllowedPaths()
+    {
+        return $this->allowedPaths;
+    }
     /**
      * Create javascript include tag(s)
      *
