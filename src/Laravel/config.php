@@ -108,6 +108,10 @@ return array(
 		    new Filters\ScssFilter(),
 		],
 
+		'.less' => [
+		    new Filters\LessphpFilter(),
+		],
+
 		'.hbs' => [
 			new Filters\EmberHBS(),
 		],
