@@ -46,9 +46,11 @@ return array(
 	|
 	*/
 	'paths' => array(
+		'app/Assets',
+		'resources/assets',
+		'resources/provider',
 		'resources/assets/javascripts',
 		'resources/assets/stylesheets',
-		'vendor/npm',
 		'vendor/components',
 		'vendor/npm-asset',
 	),
