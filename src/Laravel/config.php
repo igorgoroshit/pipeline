@@ -68,7 +68,7 @@ return array(
 	*/
 	'mimes' => array(
 	    'javascripts' => array('.js',  '.hbs', '.min.js'),
-	    'stylesheets' => array('.css', '.scss', '.min.css'),
+	    'stylesheets' => array('.css', '.scss', '.less', '.min.css'),
 		'sourcemaps'  => array('.js.map', '.css.map', '.min.js.map', '.min.css.map')
 	),
 
