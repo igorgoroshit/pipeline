@@ -7,6 +7,12 @@ use ScssPhp\ScssPhp\Compiler;
 
 class ScssFilter implements FilterInterface
 {
+    public function setAssetPipeline($pipeline)
+    {
+        $config = $pipeline->getConfig();
+        $this->allowedPaths = $pipeline->getAllowedPaths();
+    }
+
 	public function filterLoad(AssetInterface $asset)
 	{
 
@@ -23,7 +29,8 @@ class ScssFilter implements FilterInterface
         $scss = file_get_contents($file);
 
         $compiler = new Compiler();
-        $css = $compiler->compileString($scss)->getCss();
+        $compiler->setImportPaths($this->allowedPaths);
+        $css = $compiler->compileString($scss, $file)->getCss();
 
 		$asset->setContent($css);
 	}
